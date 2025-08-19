@@ -1,24 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import ListItem from './components/ListItem';
+import Logo, { Logo2 } from './components/Logo';
+
+let num = 10;
+
+let myBigSize = {
+  fontSize: 50,
+};
+
+let products = [
+  { id: 1, title: '1번 아이템' },
+  { id: 2, title: '2번 아이템' },
+  { id: 3, title: '3번 아이템' },
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Logo />
+      <Logo2 />
+      <h1 className="Blue-color">안녕 {num === 10 ? '10이다' : '아니다'}</h1>
+      <div style={myBigSize}>스타일</div>
+      {products.map(item => (
+        <ListItem item={item} />
+      ))}
+    </>
   );
 }
 
